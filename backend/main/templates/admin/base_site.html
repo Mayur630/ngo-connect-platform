@@ -1,0 +1,33 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %}NGO Connect Admin{% endblock %}
+
+{% block extrastyle %}
+{{ block.super }}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'admin/admin_theme.css' %}">
+{% endblock %}
+
+{% block extrahead %}
+{{ block.super }}
+<script defer src="{% static 'admin/admin_theme.js' %}"></script>
+{% endblock %}
+
+{% block branding %}
+<div class="ngo-admin-brand">
+  <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=160&q=80" alt="NGO Connect Logo">
+  <div>
+    <h1 id="site-name"><a href="{% url 'admin:index' %}">NGO Connect Admin</a></h1>
+    <p>Simple control panel for your college project</p>
+  </div>
+</div>
+{% endblock %}
+
+{% block nav-global %}
+<div class="ngo-admin-nav-links">
+  <a href="/campaigns/" target="_blank" rel="noopener noreferrer">View Campaign Site</a>
+</div>
+{% endblock %}

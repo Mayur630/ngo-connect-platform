@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Review NGO</title>
+</head>
+<body>
+
+<h2>Review {{ ngo.name }}</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    
+    <label>Rating (1-5):</label>
+    {{ form.rating }}
+
+    <br><br>
+    
+    <label>Comment:</label>
+    {{ form.comment }}
+
+    <br><br>
+    
+    <button type="submit">Submit Review</button>
+</form>
+
+<a href="/campaigns/">Back</a>
+
+</body>
+</html>

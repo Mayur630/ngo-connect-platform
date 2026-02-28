@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Campaigns</title>
+</head>
+<body>
+
+    <h2>All Campaigns</h2>
+    <h2>Search Campaigns</h2>
+
+    <form method="GET">
+        <input type="text" name="search" placeholder="Search by title or NGO">
+
+        <input type="text" name="category" placeholder="Filter by category">
+
+        <button type="submit">Search</button>
+    </form>
+
+    <hr>
+
+    {% for campaign in campaigns %}
+        <div style="border:1px solid gray; padding:15px; margin:15px;">
+            <h3>{{ campaign.title }}</h3>
+            <p>{{ campaign.description }}</p>
+            <p><strong>Goal:</strong> ₹{{ campaign.goal_amount }}</p>
+            <p><strong>Category:</strong> {{ campaign.category }}</p>
+            <p><strong>NGO:</strong> {{ campaign.ngo.name }}</p>
+            <br>
+            <a href="/review/{{ campaign.ngo.id }}/">Review NGO</a>
+            
+        </div>
+    {% empty %}
+        <p>No campaigns available.</p>
+    {% endfor %}
+
+    <a href="/dashboard/">Back to Dashboard</a>
+    <a href="/donate/{{ campaign.id }}/">Donate Now</a>
+</body>
+</html>

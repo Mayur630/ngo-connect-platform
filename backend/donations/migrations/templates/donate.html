@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Donate</title>
+</head>
+<body>
+
+<h2>Donate to {{ campaign.title }}</h2>
+<p>Goal: ₹{{ campaign.goal_amount }}</p>
+<p>Raised: ₹{{ campaign.raised_amount }}</p>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Donate</button>
+</form>
+
+<a href="/campaigns/">Back</a>
+
+</body>
+</html>
